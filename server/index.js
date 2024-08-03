@@ -52,9 +52,9 @@ res.send({
 //update data 
 app.put("/update",async(req,res)=>{
     console.log(req.body)
-    const {id,...rest}=req.body
+    const { _id,...rest}=req.body
     console.log(rest)
-    const data=await userModel.updateOne({_id:id},rest)
+    const data=await userModel.updateOne({_id:_id},rest)
     res.send({
         success:true,
         message:"data updated sucessfully",
@@ -69,7 +69,7 @@ app.delete("/delete/:id",async(req,res)=>{
     const data= await userModel.deleteOne({_id:id})
     res.send({
         success:true,
-        message:"data deleted sucessfully",
+        message:"data deleted successfully",
         data:data
     })
 
